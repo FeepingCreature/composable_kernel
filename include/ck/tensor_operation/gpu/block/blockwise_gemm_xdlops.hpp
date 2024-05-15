@@ -865,11 +865,6 @@ struct BlockwiseGemmXdlops_v2
                       "wrong!");
     }
 
-    __host__ __device__ BlockwiseGemmXdlops_v2(const BlockwiseGemmXdlops_v2& other)
-        : a_thread_copy_(other.a_origin), b_thread_copy_(other.b_origin)
-    {
-    }
-
     __device__ void SetABlockStartWindow(Tuple4 a_origin = CalculateAThreadOriginDataIndex())
     {
         a_thread_copy_.SetSrcCoord(a_origin);
