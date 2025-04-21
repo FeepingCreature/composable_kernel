@@ -49,7 +49,7 @@
     defined(__gfx90a__) || defined(__gfx940__) || defined(__gfx941__) ||                          \
     defined(__gfx942__) // for GPU code
 #define CK_BUFFER_RESOURCE_3RD_DWORD 0x00020000
-#elif defined(__gfx1030__) // for GPU code
+#elif defined(__gfx1030__) || defined(__gfx1032__) // for GPU code
 #define CK_BUFFER_RESOURCE_3RD_DWORD 0x31014000
 #elif defined(__gfx1100__) || defined(__gfx1101__) || defined(__gfx1102__) // for GPU code
 #define CK_BUFFER_RESOURCE_3RD_DWORD 0x31004000
