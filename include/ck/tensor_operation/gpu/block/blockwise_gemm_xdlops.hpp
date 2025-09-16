@@ -431,7 +431,7 @@ struct BlockwiseGemmXdlops_k0mk1_k0nk1_m0n0m1n1m2m3m4n2_v1
                     constexpr index_t c_offset =
                         c_thread_desc_.CalculateOffset(make_tuple(m0, n0, 0));
 
-                    xdlops_gemm.template Run(
+                    xdlops_gemm.template Run<>(
                         a_thread_vec.template AsType<mfma_input_type>(),
                         b_thread_vec.template AsType<mfma_input_type>(),
                         c_thread_buf.GetVectorTypeReference(Number<c_offset>{}));
@@ -610,7 +610,7 @@ struct BlockwiseGemmXdlopsInterwave_k0mk1_k0nk1_m0n0m1n1m2m3m4n2_v1
 
                         // TODO: insert setprio in more precise manner since we
                         // could have more than >1 MFMA instructions in single call
-                        xdlops_gemm.template Run(
+                        xdlops_gemm.template Run<>(
                             a_thread_vec.template AsType<mfma_input_type>(),
                             b_thread_vec.template AsType<mfma_input_type>(),
                             c_thread_buf.GetVectorTypeReference(Number<c_offset>{}));
@@ -1107,7 +1107,7 @@ struct BlockwiseGemmXdlops_v2
                     constexpr index_t c_offset =
                         c_thread_desc_.CalculateOffset(make_tuple(m0, n0, 0));
 
-                    xdlops_gemm.template Run(
+                    xdlops_gemm.template Run<>(
                         a_thread_vec.template AsType<mfma_input_type>(),
                         b_thread_vec.template AsType<mfma_input_type>(),
                         c_thread_buf.GetVectorTypeReference(Number<c_offset>{}));

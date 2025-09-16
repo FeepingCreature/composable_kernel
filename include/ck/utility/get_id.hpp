@@ -9,8 +9,8 @@ namespace ck {
 
 __host__ __device__ constexpr index_t get_warp_size()
 {
-    // warpSize is defined by HIP
-    return warpSize;
+    // warpSize is no longer constexpr as of rocm 7.0, so just hardcode the safe 32 (it's correct for rdna3+ anyway)
+    return 32;
 }
 
 __device__ index_t get_thread_local_1d_id() { return threadIdx.x; }
